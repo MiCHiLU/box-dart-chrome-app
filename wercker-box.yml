@@ -1,6 +1,6 @@
 name: dart-chrome-app
 version: 0.0.0test
-inherits: wercker/dart@0.0.3
+inherits: wercker/dart@0.0.2
 type: main
 platform: ubuntu@12.04
 description: A box create to build, test and deploy Dart applications on Chrome Apps
