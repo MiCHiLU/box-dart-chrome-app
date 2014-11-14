@@ -8,6 +8,8 @@ keywords:
   - dart
   - chrome
 script: |
+  sudo apt-get update -qq
+
   # Install zip and start a virtual frame buffer.
   sudo apt-get -y -q install zip
 
