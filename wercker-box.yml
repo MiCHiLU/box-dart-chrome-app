@@ -19,7 +19,6 @@ script: |
   # Install chrome.
   curl -O https://dl.google.com/linux/direct/google-chrome-unstable_current_amd64.deb
   sudo dpkg -i google-chrome-unstable_current_amd64.deb
-  export HAS_DARTIUM=true
 
   # For chrome installation failure.
   set -o errexit
@@ -73,16 +72,10 @@ default-build:
                 set -e
 
                 # Run tests on the Dart version of the app.
-                if [ "$HAS_DARTIUM" = "true" ]; then
-                  dart tool/test_runner.dart --dartium
-                fi
+                dart tool/test_runner.dart --dartium
 
                 # Run tests on the dart2js version of the app.
-                if [ "$DRONE" = "true" ]; then
-                  dart tool/test_runner.dart --chrome-dev
-                else
-                  dart tool/test_runner.dart --chrome
-                fi
+                dart tool/test_runner.dart --chrome-dev
 
           - script:
               name: Output the project
