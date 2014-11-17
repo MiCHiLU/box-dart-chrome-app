@@ -26,6 +26,16 @@ script: |
   # Display installed versions.
   /usr/bin/google-chrome --version
 
+  # Install dartium
+  wget "http://storage.googleapis.com/dart-archive/channels/stable/release/latest/dartium/dartium-linux-x64-release.zip"
+  unzip "dartium-linux-x64-release.zip"
+  mv `find . -name "dartium-lucid64-full-stable*" -type d|head -1` chromium
+  rm "dartium-linux-x64-release.zip"
+
+  # Display installed versions.
+  /usr/bin/google-chrome --version
+  $DART_SDK/../chromium/chrome --version
+
 default-build:
   dart-chrome-app:
     priority : 50
