@@ -74,20 +74,24 @@ default-build:
           #      fi
 
           - script:
-              name: Test the project
+              name: Test the project.
               code: |-
                 ./grind mode-test
 
                 # Turn on fast fail for the bash script.
                 set -e
 
-                # Run tests on the Dart version of the app.
+          - script:
+              name: Run tests on the Dart version of the app.
+              code: |-
                 dart tool/test_runner.dart --dartium
 
-                # Run tests on the dart2js version of the app.
+          - script:
+              name: Run tests on the dart2js version of the app.
+              code: |-
                 dart tool/test_runner.dart --chrome-dev
 
           - script:
-              name: Output the project
+              name: Output the project.
               code: |-
                 rsync -avz $WERCKER_SOURCE_DIR/ $WERCKER_OUTPUT_DIR
