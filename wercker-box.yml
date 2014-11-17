@@ -29,7 +29,7 @@ script: |
   # Install dartium
   wget "http://storage.googleapis.com/dart-archive/channels/stable/release/latest/dartium/dartium-linux-x64-release.zip"
   unzip "dartium-linux-x64-release.zip"
-  mv `find . -name "dartium-lucid64-full-stable*" -type d|head -1` chromium
+  mv `find . -name "dartium-lucid64-full-stable*" -type d|head -1` $DART_SDK/../chromium
   rm "dartium-linux-x64-release.zip"
 
   # Display installed versions.
