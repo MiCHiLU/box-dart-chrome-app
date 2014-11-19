@@ -1,5 +1,5 @@
 name: dart-chrome-app
-version: 0.0.4
+version: 0.0.22
 inherits: michilu/dart@1.7.2
 type: main
 platform: ubuntu@12.04
@@ -36,6 +36,9 @@ script: |
   /usr/bin/google-chrome --version
   $DART_SDK/../chromium/chrome --version
 
+env:
+  DISPLAY: ":99.0"
+
 default-build:
   dart-chrome-app:
     priority : 50
@@ -46,15 +49,6 @@ default-build:
       build:
         # The steps that will be executed on build.
         steps:
-          # Start xvfb which gives the context an virtual display.
-          - script:
-              name: Enable virtual display.
-              code: |-
-                # which is required for tests that require an GUI.
-                export DISPLAY=:99.0
-                start-stop-daemon --start --quiet --pidfile /tmp/xvfb_99.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :99 -screen 0 1024x768x24 -ac +extension GLX +render -noreset
-                # Give xvfb time to start. 3 seconds is the default for all xvfb-run commands.
-                sleep 3
 
           - script:
               name: Get our packages.
@@ -78,7 +72,18 @@ default-build:
               code: |-
                 ./grind mode-test
 
-                # Turn on fast fail for the bash script.
+          # which is required for tests that require an GUI.
+          - script:
+              name: Enable virtual display.
+              code: |-
+                # Start xvfb which gives the context an virtual display.
+                start-stop-daemon --start --quiet --pidfile /tmp/xvfb_99.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :99 -screen 0 1024x768x24 -ac +extension GLX +render -noreset
+                # Give xvfb time to start. 3 seconds is the default for all xvfb-run commands.
+                sleep 3
+
+          - script:
+              name: Turn on fast fail for the bash script.
+              code: |-
                 set -e
 
           - script:
