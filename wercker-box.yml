@@ -20,7 +20,12 @@ script: |
   curl -O https://dl.google.com/linux/direct/google-chrome-unstable_current_amd64.deb
   sudo dpkg -i google-chrome-unstable_current_amd64.deb
 
-  # For chrome on X11.
+  # For launch chrome
+  # [1030:1030:1120/074254:ERROR:desktop_window_tree_host_x11.cc(766)] Not implemented reached in virtual void views::DesktopWindowTreeHostX11::InitModalType(ui::ModalType)
+  # https://bugs.launchpad.net/ubuntu/+source/chromium-browser/+bug/1329286
+  sudo rm -rf $HOME/.config/chrome/Default
+
+  # For launch chrome on X11.
   sudo apt-get -y -q install dbus-x11
 
   # For chrome installation failure.
