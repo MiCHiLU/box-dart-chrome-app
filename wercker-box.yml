@@ -59,6 +59,12 @@ default-build:
         steps:
 
           - script:
+              name: Display installed versions.
+              code: |-
+                /usr/bin/google-chrome --version
+                $DART_SDK/../chromium/chrome --version
+
+          - script:
               name: Get our packages.
               code: |-
                 pub get
