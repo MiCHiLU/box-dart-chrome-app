@@ -1,5 +1,5 @@
 name: dart-chrome-app
-version: 0.0.26
+version: 0.0.27
 inherits: michilu/dart@1.7.2
 type: main
 platform: ubuntu@12.04
@@ -115,6 +115,7 @@ default-deploy:
       - default: true
     text-to-append: |
       # Deploy definition
+      - deploy:
           - script:
               name: Deploy.
               code: |-
