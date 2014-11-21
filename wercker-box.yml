@@ -107,3 +107,15 @@ default-build:
               name: Output the project.
               code: |-
                 rsync -avz $WERCKER_SOURCE_DIR/ $WERCKER_OUTPUT_DIR
+
+default-deploy:
+  dart-chrome-app:
+    priority : 50
+    detect:
+      - default: true
+    text-to-append: |
+      # Deploy definition
+          - script:
+              name: Deploy.
+              code: |-
+                ./grind release-nightly
