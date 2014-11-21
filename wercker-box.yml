@@ -109,7 +109,8 @@ default-build:
                 rsync -avz $WERCKER_SOURCE_DIR/ $WERCKER_OUTPUT_DIR
 
       # Deploy definition
-      - deploy:
+      deploy:
+        steps:
           - script:
               name: Deploy.
               code: |-
