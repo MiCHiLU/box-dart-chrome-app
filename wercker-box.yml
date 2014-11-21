@@ -44,8 +44,8 @@ script: |
   /usr/bin/google-chrome --version
   $DART_SDK/../chromium/chrome --version
 
-env:
-  DISPLAY: ":99.0"
+#env:
+#  DISPLAY: ":99.0"
 
 default-build:
   dart-chrome-app:
