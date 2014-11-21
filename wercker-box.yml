@@ -1,5 +1,5 @@
 name: dart-chrome-app
-version: 0.0.25
+version: 0.0.26
 inherits: michilu/dart@1.7.2
 type: main
 platform: ubuntu@12.04
