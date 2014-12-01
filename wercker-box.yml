@@ -1,5 +1,5 @@
 name: dart-chrome-app
-version: 0.0.31
+version: 0.0.32
 inherits: michilu/dart@1.8.0
 type: main
 platform: ubuntu@12.04
@@ -119,9 +119,9 @@ default-build:
                 dart --version
 
           - script:
-              name: Reinstall cached packages of Dart.
+              name: Get the current package's dependencies of Dart.
               code: |-
-                pub cache repair
+                pub get
 
           - script:
               name: Deploy.
