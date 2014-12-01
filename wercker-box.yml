@@ -61,6 +61,7 @@ default-build:
           - script:
               name: Display installed versions.
               code: |-
+                dart --version
                 /usr/bin/google-chrome --version
                 $DART_SDK/../chromium/chrome --version
 
@@ -111,6 +112,12 @@ default-build:
       # Deploy definition
       deploy:
         steps:
+
+          - script:
+              name: Display installed versions.
+              code: |-
+                dart --version
+
           - script:
               name: Deploy.
               code: |-
