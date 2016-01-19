@@ -1,6 +1,6 @@
 name: dart-chrome-app
-version: 1.13.0
-inherits: michilu/dart@1.13.0
+version: 1.13.1
+inherits: michilu/dart@1.13.1
 type: main
 platform: ubuntu@12.04
 description: A box create to build, test and deploy Dart applications on Chrome Apps
