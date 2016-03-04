@@ -12,7 +12,13 @@ script: |
   sudo apt-get purge pgdg-keyring
   sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 7FCC7D46ACCC4CF8
 
-  sudo apt-get update -qq && sudo apt-get upgrade
+  # upgrade to 14.04
+  # https://www.digitalocean.com/community/tutorials/how-to-upgrade-ubuntu-12-04-lts-to-ubuntu-14-04-lts
+  # https://github.com/darron/wercker-ubuntu-14.04/blob/master/wercker-box.yml
+  sudo apt-get update -qq
+  sudo apt-get install -y update-manager-core
+  sudo do-release-upgrade -f DistUpgradeViewNonInteractive -m server -d
+  lsb_release -a
 
   # Install zip and start a virtual frame buffer.
   sudo apt-get -y -q install zip
