@@ -8,6 +8,10 @@ keywords:
   - dart
   - chrome
 script: |
+  # Fix pgdg-keyring.
+  sudo apt-get purge pgdg-keyring
+  sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 7FCC7D46ACCC4CF8
+
   sudo apt-get update -qq
 
   # Install zip and start a virtual frame buffer.
